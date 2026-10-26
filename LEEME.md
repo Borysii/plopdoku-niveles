@@ -47,7 +47,11 @@ Todo está al inicio de `generar.js`:
 
 - `NIVELES_ZONA_NORMAL` y `TAMANOS_NORMALES`: cuántos niveles y de qué tamaño.
 - `ZONAS_NORMALES`: nombres, emoji y decoraciones de las zonas (se usan en orden).
+- Cada zona normal y cada evento tiene su `premio` (un popó con sombrero, un efecto o un estilo de tablero). El sombrero puede ser cualquier emoji.
 - `EVENTOS`: fechas especiales. Para agregar una, copia una línea y cambia el `id`, el nombre y la fecha.
 
 La app **valida** todo lo que descarga: si un nivel viene dañado o tiene más de una solución,
 lo ignora. Si no hay internet, se juega con lo último que se descargó.
+
+
+© 2026 Boris Tení. Todos los derechos reservados. Este código y los niveles generados son parte del juego PlopDoku y no pueden reutilizarse sin permiso.

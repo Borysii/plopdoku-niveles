@@ -7,7 +7,9 @@
    2. Si en las próximas dos semanas hay una fecha especial
       (Halloween, Navidad, Independencia…), agrega además
       una ZONA ESPECIAL temática (10 niveles).
-   3. Guarda todo en niveles.json, que la app descarga.
+   3. Cada zona trae un PREMIO coleccionable (un popó con
+      sombrero, un efecto o un estilo de tablero).
+   4. Guarda todo en niveles.json, que la app descarga.
    Cada nivel tiene una sola solución y se resuelve solo con
    lógica (mismas reglas que la pista del juego).
 
@@ -25,36 +27,36 @@ const TAMANOS_ESPECIALES = [8, 8, 9, 9, 9, 10, 10, 10, 11, 11];  // eventos: má
 const LIMITE_MS_POR_ZONA = 25 * 60 * 1000;           // tope de seguridad
 
 const ZONAS_NORMALES = [
-  { nombre: "Baño del hospital",       emoji: "🏥", deco: ["🩺", "💊", "🧴", "🧻"] },
-  { nombre: "Baño del cine",           emoji: "🎬", deco: ["🍿", "🎟️", "🥤", "🧻"] },
-  { nombre: "Baño de la feria",        emoji: "🎡", deco: ["🎠", "🍭", "🎈", "🧻"] },
-  { nombre: "Baño del lago",           emoji: "🛶", deco: ["🐟", "🌋", "🦆", "🫧"] },
-  { nombre: "Baño del tren",           emoji: "🚂", deco: ["🛤️", "🧳", "🎫", "🧻"] },
-  { nombre: "Baño de la playa",        emoji: "🏖️", deco: ["🐚", "🦀", "🩴", "🌊"] },
-  { nombre: "Baño del museo",          emoji: "🏛️", deco: ["🖼️", "🗿", "🏺", "🧻"] },
-  { nombre: "Baño del crucero",        emoji: "🛳️", deco: ["⚓", "🐬", "🛟", "🌊"] },
-  { nombre: "Baño de la selva",        emoji: "🌿", deco: ["🦜", "🐒", "🌺", "🐸"] },
-  { nombre: "Baño del castillo",       emoji: "🏰", deco: ["🗡️", "🛡️", "🕯️", "🐉"] },
-  { nombre: "Baño de la montaña",      emoji: "🏔️", deco: ["🧗", "🌲", "❄️", "🦅"] },
-  { nombre: "Baño del submarino",      emoji: "🤿", deco: ["🐙", "🐠", "🫧", "🦑"] },
-  { nombre: "Baño del circo",          emoji: "🎪", deco: ["🤡", "🎩", "🐘", "🎺"] },
-  { nombre: "Baño de la granja",       emoji: "🐄", deco: ["🐔", "🐖", "🌽", "🚜"] },
-  { nombre: "Baño del laboratorio",    emoji: "🧪", deco: ["🔬", "⚗️", "🧬", "🧯"] },
-  { nombre: "Baño de la estación espacial", emoji: "🚀", deco: ["🪐", "👽", "🛰️", "🌌"] }
+  { nombre: "Baño del hospital",       emoji: "🏥", deco: ["🩺", "💊", "🧴", "🧻"], premio: { id: "p-rescatista", nombre: "Popó rescatista", tipo: "popo", sombrero: "⛑️" } },
+  { nombre: "Baño del cine",           emoji: "🎬", deco: ["🍿", "🎟️", "🥤", "🧻"], premio: { id: "p-cinefilo", nombre: "Popó cinéfilo", tipo: "popo", sombrero: "🍿" } },
+  { nombre: "Baño de la feria",        emoji: "🎡", deco: ["🎠", "🍭", "🎈", "🧻"], premio: { id: "t-marroqui", nombre: "Tablero marroquí", tipo: "tablero", estilo: "marroqui" } },
+  { nombre: "Baño del lago",           emoji: "🛶", deco: ["🐟", "🌋", "🦆", "🫧"], premio: { id: "p-pescador", nombre: "Popó pescador", tipo: "popo", sombrero: "🎣" } },
+  { nombre: "Baño del tren",           emoji: "🚂", deco: ["🛤️", "🧳", "🎫", "🧻"], premio: { id: "t-marmol", nombre: "Tablero de mármol", tipo: "tablero", estilo: "marmol" } },
+  { nombre: "Baño de la playa",        emoji: "🏖️", deco: ["🐚", "🦀", "🩴", "🌊"], premio: { id: "p-veraniego", nombre: "Popó veraniego", tipo: "popo", sombrero: "👒" } },
+  { nombre: "Baño del museo",          emoji: "🏛️", deco: ["🖼️", "🗿", "🏺", "🧻"], premio: { id: "p-artista", nombre: "Popó artista", tipo: "popo", sombrero: "🎨" } },
+  { nombre: "Baño del crucero",        emoji: "🛳️", deco: ["⚓", "🐬", "🛟", "🌊"], premio: { id: "p-marinero", nombre: "Popó marinero", tipo: "popo", sombrero: "⚓" } },
+  { nombre: "Baño de la selva",        emoji: "🌿", deco: ["🦜", "🐒", "🌺", "🐸"], premio: { id: "p-explorador", nombre: "Popó explorador", tipo: "popo", sombrero: "🌿" } },
+  { nombre: "Baño del castillo",       emoji: "🏰", deco: ["🗡️", "🛡️", "🕯️", "🐉"], premio: { id: "p-caballero", nombre: "Popó caballero", tipo: "popo", sombrero: "⚔️" } },
+  { nombre: "Baño de la montaña",      emoji: "🏔️", deco: ["🧗", "🌲", "❄️", "🦅"], premio: { id: "p-alpinista", nombre: "Popó alpinista", tipo: "popo", sombrero: "❄️" } },
+  { nombre: "Baño del submarino",      emoji: "🤿", deco: ["🐙", "🐠", "🫧", "🦑"], premio: { id: "p-buzo", nombre: "Popó buzo", tipo: "popo", sombrero: "🤿" } },
+  { nombre: "Baño del circo",          emoji: "🎪", deco: ["🤡", "🎩", "🐘", "🎺"], premio: { id: "p-cirquero", nombre: "Popó cirquero", tipo: "popo", sombrero: "🎪" } },
+  { nombre: "Baño de la granja",       emoji: "🐄", deco: ["🐔", "🐖", "🌽", "🚜"], premio: { id: "p-vaquero", nombre: "Popó vaquero", tipo: "popo", sombrero: "🤠" } },
+  { nombre: "Baño del laboratorio",    emoji: "🧪", deco: ["🔬", "⚗️", "🧬", "🧯"], premio: { id: "p-cientifico", nombre: "Popó científico", tipo: "popo", sombrero: "🧪" } },
+  { nombre: "Baño de la estación espacial", emoji: "🚀", deco: ["🪐", "👽", "🛰️", "🌌"], premio: { id: "p-astronauta", nombre: "Popó astronauta", tipo: "popo", sombrero: "🪐" } }
 ];
 const COLORES = ["var(--r1)", "var(--r7)", "var(--r9)", "var(--r11)", "var(--r10)", "var(--r8)", "var(--r3)", "var(--r6)"];
 
 /* Fechas especiales. "fecha" recibe el año y devuelve [mes, día]. */
 const EVENTOS = [
-  { id: "anio-nuevo",     nombre: "Baño de Año Nuevo",     emoji: "🎆", color: "var(--r11)", deco: ["🎉", "🥂", "🕛", "✨"], fecha: a => [1, 1] },
-  { id: "san-valentin",   nombre: "Baño del amor",         emoji: "💘", color: "var(--r1)",  deco: ["💌", "🌹", "💝", "🍫"], fecha: a => [2, 14] },
-  { id: "semana-santa",   nombre: "Baño de Semana Santa",  emoji: "🌴", color: "var(--r5)",  deco: ["🕯️", "🌸", "🥖", "🐟"], fecha: a => domingoPascua(a) },
-  { id: "dia-tierra",     nombre: "Baño ecológico",        emoji: "🌎", color: "var(--r4)",  deco: ["🌱", "♻️", "💧", "🌳"], fecha: a => [4, 22] },
-  { id: "independencia",  nombre: "Baño patrio",           emoji: "🇬🇹", color: "var(--r3)",  deco: ["🪅", "🎺", "🥁", "🕊️"], fecha: a => [9, 15] },
-  { id: "dia-nino",       nombre: "Baño de juguetes",      emoji: "🧸", color: "var(--r10)", deco: ["🪀", "🎈", "🧩", "🪁"], fecha: a => [10, 1] },
-  { id: "halloween",      nombre: "Baño embrujado",        emoji: "🎃", color: "var(--r6)",  deco: ["👻", "🦇", "🕸️", "🕯️"], fecha: a => [10, 31] },
-  { id: "barriletes",     nombre: "Baño de los barriletes", emoji: "🪁", color: "var(--r7)", deco: ["🪁", "🌼", "🍬", "☁️"], fecha: a => [11, 1] },
-  { id: "navidad",        nombre: "Baño navideño",         emoji: "🎄", color: "var(--r4)",  deco: ["🎁", "⛄", "🔔", "🫔"], fecha: a => [12, 25] }
+  { id: "anio-nuevo",     nombre: "Baño de Año Nuevo",     emoji: "🎆", color: "var(--r11)", deco: ["🎉", "🥂", "🕛", "✨"], premio: { id: "p-fiestero", nombre: "Popó fiestero", tipo: "popo", sombrero: "🎉" }, fecha: a => [1, 1] },
+  { id: "san-valentin",   nombre: "Baño del amor",         emoji: "💘", color: "var(--r1)",  deco: ["💌", "🌹", "💝", "🍫"], premio: { id: "p-enamorado", nombre: "Popó enamorado", tipo: "popo", sombrero: "💘" }, fecha: a => [2, 14] },
+  { id: "semana-santa",   nombre: "Baño de Semana Santa",  emoji: "🌴", color: "var(--r5)",  deco: ["🕯️", "🌸", "🥖", "🐟"], premio: { id: "p-palma", nombre: "Popó de palma", tipo: "popo", sombrero: "🌴" }, fecha: a => domingoPascua(a) },
+  { id: "dia-tierra",     nombre: "Baño ecológico",        emoji: "🌎", color: "var(--r4)",  deco: ["🌱", "♻️", "💧", "🌳"], premio: { id: "p-ecologico", nombre: "Popó ecológico", tipo: "popo", sombrero: "🌱" }, fecha: a => [4, 22] },
+  { id: "independencia",  nombre: "Baño patrio",           emoji: "🇬🇹", color: "var(--r3)",  deco: ["🪅", "🎺", "🥁", "🕊️"], premio: { id: "p-patriota", nombre: "Popó patriota", tipo: "popo", sombrero: "🇬🇹" }, fecha: a => [9, 15] },
+  { id: "dia-nino",       nombre: "Baño de juguetes",      emoji: "🧸", color: "var(--r10)", deco: ["🪀", "🎈", "🧩", "🪁"], premio: { id: "p-jugueton", nombre: "Popó juguetón", tipo: "popo", sombrero: "🎈" }, fecha: a => [10, 1] },
+  { id: "halloween",      nombre: "Baño embrujado",        emoji: "🎃", color: "var(--r6)",  deco: ["👻", "🦇", "🕸️", "🕯️"], premio: { id: "p-fantasma", nombre: "Popó fantasma", tipo: "popo", efecto: "fantasma" }, fecha: a => [10, 31] },
+  { id: "barriletes",     nombre: "Baño de los barriletes", emoji: "🪁", color: "var(--r7)", deco: ["🪁", "🌼", "🍬", "☁️"], premio: { id: "p-barrilete", nombre: "Popó barrilete", tipo: "popo", sombrero: "🪁" }, fecha: a => [11, 1] },
+  { id: "navidad",        nombre: "Baño navideño",         emoji: "🎄", color: "var(--r4)",  deco: ["🎁", "⛄", "🔔", "🫔"], premio: { id: "p-navideno", nombre: "Popó navideño", tipo: "popo", sombrero: "🎅" }, fecha: a => [12, 25] }
 ];
 
 /* Domingo de Pascua (algoritmo de Meeus/Jones/Butcher) */
@@ -251,7 +253,7 @@ for (const ev of EVENTOS) {
       const niveles = generarZona(TAMANOS_ESPECIALES.slice(0, NIVELES_ZONA_ESPECIAL), clave);
       if (niveles.length >= Math.min(5, NIVELES_ZONA_ESPECIAL)) {
         nuevas.push({ id: clave, evento: clave, especial: true, nombre: ev.nombre + " " + anio, emoji: ev.emoji,
-          color: ev.color, deco: ev.deco, fecha: iso(fecha), niveles });
+          color: ev.color, deco: ev.deco, premio: ev.premio, fecha: iso(fecha), niveles });
       }
     }
   }
@@ -269,7 +271,7 @@ if (!datos.zonas.some(z => z.id === idNormal)) {
   const niveles = generarZona(Array(NIVELES_ZONA_NORMAL).fill(tam), idNormal);
   if (niveles.length >= Math.min(10, NIVELES_ZONA_NORMAL)) {
     nuevas.push({ id: idNormal, especial: false, nombre, emoji: plantilla.emoji,
-      color: COLORES[numNormales % COLORES.length], deco: plantilla.deco, fecha: iso(hoy), niveles });
+      color: COLORES[numNormales % COLORES.length], deco: plantilla.deco, premio: plantilla.premio, fecha: iso(hoy), niveles });
   }
 }
 
