@@ -1,0 +1,28 @@
+name: Generar niveles
+
+on:
+  schedule:
+    - cron: "0 12 1,15 * *"   # días 1 y 15 de cada mes, 6:00 a. m. de Guatemala
+  workflow_dispatch:           # botón "Run workflow" para ejecutarlo a mano
+
+permissions:
+  contents: write
+
+jobs:
+  generar:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: Generar zonas nuevas
+        run: node generar.js
+      - name: Guardar niveles.json
+        run: |
+          git config user.name "plopdoku-bot"
+          git config user.email "plopdoku-bot@users.noreply.github.com"
+          git add niveles.json
+          git diff --cached --quiet || git commit -m "Niveles nuevos $(date +%F)"
+          git push
