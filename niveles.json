@@ -1,1 +1,172 @@
-{"version":0,"actualizado":null,"proxima":null,"zonas":[]}
+{
+ "version": 1,
+ "actualizado": "2026-11-01",
+ "proxima": "2026-11-15",
+ "zonas": [
+  {
+   "id": "barriletes-2026",
+   "evento": "barriletes-2026",
+   "especial": true,
+   "nombre": "Baño de los barriletes 2026",
+   "emoji": "🪁",
+   "color": "var(--r7)",
+   "deco": [
+    "🪁",
+    "🌼",
+    "🍬",
+    "☁️"
+   ],
+   "premio": {
+    "id": "p-barrilete",
+    "nombre": "Popó barrilete",
+    "tipo": "popo",
+    "sombrero": "🪁"
+   },
+   "fecha": "2026-11-01",
+   "niveles": [
+    {
+     "id": "barriletes-2026-01",
+     "filas": "aaaaabbc/aaabbbbc/adadcccc/ddddffcc/eedddfcc/gedfdfcc/geffffff/gffffhhf"
+    },
+    {
+     "id": "barriletes-2026-02",
+     "filas": "beecccaa/bbecccca/ddeecccc/edeeeeff/eeeeheff/eehhhegf/hhhhhggf/hhhhhhgg"
+    },
+    {
+     "id": "barriletes-2026-03",
+     "filas": "aaaaaaaad/bbbaaaaad/ccbbbafad/cbbffffdd/ceefffffd/chefiiffd/hhhffiffg/hhhhfiiig/hhiiiiiii"
+    },
+    {
+     "id": "barriletes-2026-04",
+     "filas": "bbbbaaaaa/bdeeeaacc/ddeeeeecg/ddeeeefcg/deeeeefgg/diiiehfgg/iiiiihfgg/iiiiihhhg/iiiiiihhh"
+    },
+    {
+     "id": "barriletes-2026-05",
+     "filas": "ccaaddbbb/cccdddbbb/ffcdddeee/fffddgege/ffddgggge/fdddhgggg/idiihgggg/iiihhhggg/iiigggggg"
+    },
+    {
+     "id": "barriletes-2026-06",
+     "filas": "bbbeaaaaad/bebeeaaadd/eeeeeeccdd/eeeeffffdf/gggeffffff/hggeffffff/hggggfgfff/hhhjgggfff/hhjjggifii/hhjgggiiii"
+    },
+    {
+     "id": "barriletes-2026-07",
+     "filas": "eeecaaaaaa/eeecaaaaab/eeeccdddab/eeeeeeedaa/eeeeeeedda/eeeeeeeeff/igeheeeeff/igeheeefff/ijjjeeeeff/iiijjjefff"
+    },
+    {
+     "id": "barriletes-2026-08",
+     "filas": "bcccccddda/bbbcddddda/ggccddddde/gccdddeeee/gfffddfeee/ghhffffeie/gghffiieie/hhhjjiiiie/hhjjiiiiii/jjjjjiiiii"
+    },
+    {
+     "id": "barriletes-2026-09",
+     "filas": "aaaaaaaaabb/aaaaaaacbbb/eaeeccccbbb/eeeeddccbbb/eeeefcccbbb/eeehfccgggg/eejhhgggggg/ijjhhgggggg/iijjhhhgggg/ijjjjkkgggg/iiijjkkkggg"
+    },
+    {
+     "id": "barriletes-2026-10",
+     "filas": "ccbbbbaaaaa/ccbbbbbaaaa/ccccbbbbaag/dcccbbbbfgg/dccheebffgg/cchhhhhhfgg/hhhhggggggg/jjjhhgggggg/iijjhhhhkkk/ijjjhhkhkkk/ijjjhhkkkkk"
+    }
+   ]
+  },
+  {
+   "id": "z2026-11-01",
+   "especial": false,
+   "nombre": "Baño del hospital",
+   "emoji": "🏥",
+   "color": "var(--r1)",
+   "deco": [
+    "🩺",
+    "💊",
+    "🧴",
+    "🧻"
+   ],
+   "premio": {
+    "id": "p-rescatista",
+    "nombre": "Popó rescatista",
+    "tipo": "popo",
+    "sombrero": "⛑️"
+   },
+   "fecha": "2026-11-01",
+   "niveles": [
+    {
+     "id": "z2026-11-01-01",
+     "filas": "ddddbaaaaa/ddddbbaaaa/ddddbdcaca/ddddddccca/dffddgeeca/jjfddgggca/jjhggggaaa/jhhggigggg/jjjggigggg/jjjiiiiiii"
+    },
+    {
+     "id": "z2026-11-01-02",
+     "filas": "bbbbbcccaa/dbbccccccc/dccccccccc/ddddccccee/dddddggeee/dfddddgggg/dfdddggggg/ffddhggggg/fffdhhghhi/jjddhhhhii"
+    },
+    {
+     "id": "z2026-11-01-03",
+     "filas": "bbbddddaac/bbbbbdddcc/bbbdddddcc/beeeeedddd/biieeeeddd/bieeeedddf/iiihhgggdf/iiihhjjjjf/ijjjjjjjjj/jjjjjjjjjj"
+    },
+    {
+     "id": "z2026-11-01-04",
+     "filas": "bbbbbcaaaa/bbbbbccaaa/bbbbcccaad/bbeeeccgdd/bbbeeeeggd/fbbeeeeegd/ffffeeeggd/fffffeeegh/fffjieehhh/ffjjiehhhh"
+    },
+    {
+     "id": "z2026-11-01-05",
+     "filas": "ddffcaabbb/dfffccbbbb/ddfccebbbb/ddffeebbbb/dddfeebbbb/ddffffgbbb/ffffgggbgb/ffffhggggg/jjhhhggiig/jhhhgggggg"
+    },
+    {
+     "id": "z2026-11-01-06",
+     "filas": "aaaaffdddd/bbaacfdddd/eeeccffddd/eeefffffdf/efffffffff/hhffffffff/hhfhfffggf/hhhhhffggg/hhhhhiijjj/hhhhhijjjj"
+    },
+    {
+     "id": "z2026-11-01-07",
+     "filas": "bbbccaaccc/dbdccccccc/dddccccccc/ddddcccccc/eeddcffccf/jediifffff/jjjiiiggff/jjhhhiiiff/jjhhhiifff/jjjiiiiiff"
+    },
+    {
+     "id": "z2026-11-01-08",
+     "filas": "dbbbaacccc/dbbbbacccc/dbbbbaaccc/dddbbccccc/dddbbecccc/ddfbfegccc/ddfffggggh/ddffgggggh/dfffgiiggi/dfjjgiiiii"
+    },
+    {
+     "id": "z2026-11-01-09",
+     "filas": "bbbbaaaccc/bdbddccccc/dddddceccc/dddddcecee/dddddgeeef/dddddgffef/dddddggfff/hddgggggff/hhhhgigggf/hjjhgiiggf"
+    },
+    {
+     "id": "z2026-11-01-10",
+     "filas": "ccccccccca/bbccccccaa/dccccccccc/dccecccccc/fffeeiccgg/fffffiicgg/ffffiiicgg/hhhhiiijgg/hhiiiijjjj/hiiiijjjjj"
+    },
+    {
+     "id": "z2026-11-01-11",
+     "filas": "bbbbbbddaa/gbbbbdddcc/ggbbbbddcc/gggeeffddd/gggefffffi/ggggffffii/gggffiifii/gghhiiifii/ggjjiiifii/ggjjjiiiii"
+    },
+    {
+     "id": "z2026-11-01-12",
+     "filas": "bbbbbaaacf/bbbbbaaacf/bbbbbbaccf/dbecccccff/ddeecicfff/gdeiiiffff/ggeiiihhhf/jjiiiiifhf/jjiiiiffff/jjjiiiifff"
+    },
+    {
+     "id": "z2026-11-01-13",
+     "filas": "eeeeaaabbb/eeeeefaaab/eeeeefccdd/eeeefffddd/eheeeefffd/ghhhhffffd/ghhhhhhffj/iihhhhfffj/hihhhhjjjj/hhhhhhhjjj"
+    },
+    {
+     "id": "z2026-11-01-14",
+     "filas": "bbaaaccccc/ebbddccccc/eeddcccccc/eedddccccf/eededccggf/eededgcgff/eeeejggggh/ieeejjgggh/iejjjggggg/iijjjjgggg"
+    },
+    {
+     "id": "z2026-11-01-15",
+     "filas": "bbbbaaaaee/bbcccdddde/ccccddddee/ccdddddeee/ccdddddeee/cccfffeeee/ggcggfeeee/gggggihheh/jgggiihhhh/jjgiiihhhh"
+    },
+    {
+     "id": "z2026-11-01-16",
+     "filas": "ccccaaaaaa/cbbbeeaaaa/cccbeeeeed/cbbbbeeeed/fffffggeee/ffffffggee/ffffffggge/hfffgggggi/hhhgggjjii/hhhjjjjiii"
+    },
+    {
+     "id": "z2026-11-01-17",
+     "filas": "bbbbbbbcaa/bfbbbbccca/dfbcccccea/dffccfceee/ffffffccce/ffffffceee/fffffccggg/fffhiiiigg/fffhiiiiii/fffjjiiiii"
+    },
+    {
+     "id": "z2026-11-01-18",
+     "filas": "aagdccccbb/gggdddcccb/gggdddcccc/gggdddfccc/hgggddfecc/hhggdffeee/hggggifiii/hhhggiiiii/hgggiiiiij/hiiiiiijjj"
+    },
+    {
+     "id": "z2026-11-01-19",
+     "filas": "dddcccccaa/ddbbbcccca/dddbjccjja/dbbbjjjjje/ggbjjjjjje/gfffjjjjje/gggfjjhjje/giiiijhhhh/iiiijjjjhh/iijjjjjjhh"
+    },
+    {
+     "id": "z2026-11-01-20",
+     "filas": "eecaabbbbb/eccccbbbbb/eeeecbfbbd/eeeeebfbfd/gebbbbffff/ggbbbbbfff/ggggffffff/ggggifffhh/jjgiiifhhh/jggiihhhhh"
+    }
+   ]
+  }
+ ]
+}
