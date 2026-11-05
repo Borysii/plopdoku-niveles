@@ -2,7 +2,7 @@
 
 Este repositorio genera zonas nuevas de PlopDoku **solo**, los días **1 y 15 de cada mes**:
 
-- **Una zona normal** de 20 niveles (10×10, 11×11 o 12×12, alternando).
+- **Una zona normal** de 20 niveles con tamaños mezclados (9×9 a 12×12) y la dificultad en olas: fáciles, 🔥 difíciles, respiros y un 💀 jefe al final.
 - **Una zona especial** de 10 niveles cuando se acerca una fecha:
   Año Nuevo, San Valentín, Semana Santa, Día de la Tierra, Independencia (15 de septiembre),
   Día del Niño (1 de octubre), Halloween, Barriletes (1 de noviembre) y Navidad.
@@ -45,7 +45,7 @@ Listo. A partir de aquí no tienes que hacer nada.
 
 Todo está al inicio de `generar.js`:
 
-- `NIVELES_ZONA_NORMAL` y `TAMANOS_NORMALES`: cuántos niveles y de qué tamaño.
+- `OLA_NORMAL`, `OLA_ESPECIAL`, `TAM_NORMAL` y `TAM_ESPECIAL`: la curva de dificultad y el tamaño de tablero de cada tipo de nivel.
 - `ZONAS_NORMALES`: nombres, emoji y decoraciones de las zonas (se usan en orden).
 - Cada zona normal y cada evento tiene su `premio` (un popó con sombrero, un efecto o un estilo de tablero). El sombrero puede ser cualquier emoji.
 - `EVENTOS`: fechas especiales. Para agregar una, copia una línea y cambia el `id`, el nombre y la fecha.

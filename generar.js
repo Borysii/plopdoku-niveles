@@ -3,7 +3,8 @@
    ---------------------------------------------------------
    GitHub Actions lo ejecuta los días 1 y 15 de cada mes.
    En cada ejecución:
-   1. Agrega una ZONA NORMAL nueva (20 niveles).
+   1. Agrega una ZONA NORMAL nueva (20 niveles, de 9×9 a 12×12, con la
+      dificultad en olas: fáciles, difíciles 🔥, respiros y un jefe 💀).
    2. Si en las próximas dos semanas hay una fecha especial
       (Halloween, Navidad, Independencia…), agrega además
       una ZONA ESPECIAL temática (10 niveles).
@@ -20,10 +21,19 @@ const fs = require("fs");
 const ARCHIVO = "niveles.json";
 
 /* ---------- Configuración (lo único que quizá quieras tocar) ---------- */
-const NIVELES_ZONA_NORMAL = +(process.env.CANTIDAD || 20);
-const NIVELES_ZONA_ESPECIAL = +(process.env.CANTIDAD || 10);
-const TAMANOS_NORMALES = [10, 11, 12];               // se van alternando zona por zona
-const TAMANOS_ESPECIALES = [8, 8, 9, 9, 9, 10, 10, 10, 11, 11];  // eventos: más relajados
+/* CURVA EN OLAS (como Candy Crush): la dificultad sube y baja dentro de
+   cada zona. Cada casilla es [papel, percentil de dificultad 0..1].
+   facil/medio/respiro = normales · dificil = 🔥 · jefe = 💀 (último nivel) */
+const OLA_NORMAL = [["facil",.04],["facil",.10],["facil",.16],["facil",.22],["medio",.42],["medio",.5],["dificil",.86],
+  ["respiro",.08],["respiro",.14],["medio",.40],["medio",.48],["medio",.58],["medio",.66],["dificil",.92],
+  ["respiro",.12],["respiro",.2],["medio",.6],["medio",.68],["medio",.76],["jefe",.99]];
+const OLA_ESPECIAL = [["facil",.05],["facil",.15],["facil",.25],["medio",.45],["dificil",.85],
+  ["respiro",.1],["respiro",.2],["medio",.55],["medio",.65],["jefe",.97]];
+/* Tamaño del tablero según el papel. En zonas normales, algunos niveles
+   "medio" cambian de tamaño para que haya variedad. */
+const TAM_NORMAL = { facil: 10, medio: 11, dificil: 12, respiro: 9, jefe: 12 };
+const TAM_ESPECIAL = { facil: 8, medio: 9, dificil: 10, respiro: 8, jefe: 11 };
+const CANTIDAD_PRUEBA = +(process.env.CANTIDAD || 0);   // para pruebas rápidas: limita niveles por zona
 const LIMITE_MS_POR_ZONA = 25 * 60 * 1000;           // tope de seguridad
 
 const ZONAS_NORMALES = [
@@ -205,21 +215,37 @@ function generarNivel(n, limite) {
   return null;
 }
 
-function generarZona(tamanos, prefijo) {
+function generarZona(ola, tam, prefijo, variar) {
+  if (CANTIDAD_PRUEBA) ola = ola.slice(0, CANTIDAD_PRUEBA);
   const limite = Date.now() + LIMITE_MS_POR_ZONA;
   const vistos = new Set(todosLosNiveles());
-  const lista = [];
-  for (const n of tamanos) {
-    let nivel;
-    do { nivel = generarNivel(n, limite); } while (nivel && vistos.has(nivel.filas));
-    if (!nivel) break;
-    vistos.add(nivel.filas);
-    lista.push(nivel);
-    console.log(`  ${prefijo}: nivel ${lista.length}/${tamanos.length} (${n}×${n})`);
+  // tamaño de cada casilla
+  const plan = ola.map(([papel, p], i) => ({ papel, p, n: (variar && variar[i]) || tam[papel] }));
+  // por cada tamaño se genera un "vivero" con el doble de niveles y se eligen por percentil
+  const vivero = {};
+  for (const n of [...new Set(plan.map(x => x.n))]) {
+    const necesarios = plan.filter(x => x.n === n).length, meta = necesarios * 2 + 2, lista = [];
+    while (lista.length < meta) {
+      const nivel = generarNivel(n, limite);
+      if (!nivel) break;
+      if (vistos.has(nivel.filas) || lista.some(l => l.filas === nivel.filas)) continue;
+      lista.push(nivel);
+      console.log(`  ${prefijo}: ${n}×${n} (${lista.length}/${meta})`);
+    }
+    lista.sort((a, b) => a.dif - b.dif);
+    vivero[n] = lista;
   }
-  // De menor a mayor tamaño y, dentro de cada tamaño, de más fácil a más difícil
-  lista.sort((a, b) => a.n - b.n || a.dif - b.dif);
-  return lista.map((l, i) => ({ id: prefijo + "-" + String(i + 1).padStart(2, "0"), filas: l.filas }));
+  const salida = [];
+  plan.forEach((x, i) => {
+    const lista = vivero[x.n];
+    if (!lista || !lista.length) return;
+    const k = Math.min(lista.length - 1, Math.max(0, Math.round(x.p * (lista.length - 1))));
+    const [nivel] = lista.splice(k, 1);
+    vistos.add(nivel.filas);
+    salida.push({ id: prefijo + "-" + String(i + 1).padStart(2, "0"), filas: nivel.filas,
+      tipo: x.papel === "dificil" ? "dificil" : x.papel === "jefe" ? "jefe" : "normal" });
+  });
+  return salida;
 }
 
 /* =========================================================
@@ -250,8 +276,8 @@ for (const ev of EVENTOS) {
     const clave = ev.id + "-" + anio;
     if (fecha >= masDias(hoy, -1) && fecha <= masDias(proxima, 1) && !datos.zonas.some(z => z.evento === clave)) {
       console.log("Zona especial:", ev.nombre, anio);
-      const niveles = generarZona(TAMANOS_ESPECIALES.slice(0, NIVELES_ZONA_ESPECIAL), clave);
-      if (niveles.length >= Math.min(5, NIVELES_ZONA_ESPECIAL)) {
+      const niveles = generarZona(OLA_ESPECIAL, TAM_ESPECIAL, clave);
+      if (niveles.length >= Math.min(5, CANTIDAD_PRUEBA || 10)) {
         nuevas.push({ id: clave, evento: clave, especial: true, nombre: ev.nombre + " " + anio, emoji: ev.emoji,
           color: ev.color, deco: ev.deco, premio: ev.premio, fecha: iso(fecha), niveles });
       }
@@ -263,13 +289,15 @@ for (const ev of EVENTOS) {
 const numNormales = datos.zonas.filter(z => !z.especial).length;
 const plantilla = ZONAS_NORMALES[numNormales % ZONAS_NORMALES.length];
 const vuelta = Math.floor(numNormales / ZONAS_NORMALES.length);
-const tam = TAMANOS_NORMALES[numNormales % TAMANOS_NORMALES.length];
+// variedad: en cada zona, algunos niveles "medio" cambian de tamaño (alternando el patrón)
+const VARIACIONES = [{ 10: 10, 12: 12 }, { 5: 12, 11: 10, 17: 12 }, { 4: 10, 12: 12, 16: 10 }];
+const variar = VARIACIONES[numNormales % VARIACIONES.length];
 const idNormal = "z" + iso(hoy);
 if (!datos.zonas.some(z => z.id === idNormal)) {
   const nombre = plantilla.nombre + (vuelta ? " " + ["", "II", "III", "IV", "V", "VI"][vuelta] : "");
-  console.log("Zona normal:", nombre, tam + "×" + tam);
-  const niveles = generarZona(Array(NIVELES_ZONA_NORMAL).fill(tam), idNormal);
-  if (niveles.length >= Math.min(10, NIVELES_ZONA_NORMAL)) {
+  console.log("Zona normal:", nombre);
+  const niveles = generarZona(OLA_NORMAL, TAM_NORMAL, idNormal, variar);
+  if (niveles.length >= Math.min(10, CANTIDAD_PRUEBA || 20)) {
     nuevas.push({ id: idNormal, especial: false, nombre, emoji: plantilla.emoji,
       color: COLORES[numNormales % COLORES.length], deco: plantilla.deco, premio: plantilla.premio, fecha: iso(hoy), niveles });
   }
