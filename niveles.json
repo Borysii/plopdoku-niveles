@@ -1,7 +1,7 @@
 {
- "version": 2,
- "actualizado": "2026-11-05",
- "proxima": "2026-11-15",
+ "version": 3,
+ "actualizado": "2026-11-15",
+ "proxima": "2026-12-01",
  "zonas": [
   {
    "id": "barriletes-2026",
@@ -286,6 +286,128 @@
     {
      "id": "z2026-11-05-20",
      "filas": "aabbbbbbbbbb/daabddbbbbbc/dddddddbbbbc/ddhdddddbbee/ddhddggeeeee/dhhhddgffeee/dhhhggggffee/dhhhhhgggiii/hhhhggggiiii/hjjhhgiiiiii/hjlhiiiiiikk/jjlhiiikkkkk",
+     "tipo": "jefe"
+    }
+   ]
+  },
+  {
+   "id": "z2026-11-15",
+   "especial": false,
+   "nombre": "Baño de la feria",
+   "emoji": "🎡",
+   "color": "var(--r9)",
+   "deco": [
+    "🎠",
+    "🍭",
+    "🎈",
+    "🧻"
+   ],
+   "premio": {
+    "id": "t-marroqui",
+    "nombre": "Tablero marroquí",
+    "tipo": "tablero",
+    "estilo": "marroqui"
+   },
+   "fecha": "2026-11-15",
+   "niveles": [
+    {
+     "id": "z2026-11-15-01",
+     "filas": "ddddaaccbb/ddddccccbc/ddddcccccc/dddddddfcc/eddddddffc/eddddddfff/hddddddgff/hhdddddggg/hhhhddiggg/hjjhhiiggg",
+     "tipo": "normal"
+    },
+    {
+     "id": "z2026-11-15-02",
+     "filas": "bbaaaaeeec/bdddddeecc/ggdddeeccf/ggghdeeeef/gghheeieff/ghhheeiiff/ggjhheifff/gjjhjiiffi/jjjjjiifii/jjjiiiiiii",
+     "tipo": "normal"
+    },
+    {
+     "id": "z2026-11-15-03",
+     "filas": "aaccccbbbe/accccddbbe/acccddddee/acccddddee/ggcccddeee/gggchfddee/gggghfeeee/igghhjjeee/igghjjjeee/hhhhjjjeee",
+     "tipo": "normal"
+    },
+    {
+     "id": "z2026-11-15-04",
+     "filas": "abbbbbbbhh/acdbbbbhhh/ccddfbbbeh/cfddffffeh/cffffffeeh/cffffggehh/cfffgggeeh/cjfjghhhhh/jjjjggiihh/jjjjiiihhh",
+     "tipo": "normal"
+    },
+    {
+     "id": "z2026-11-15-05",
+     "filas": "aaaaaaaaab/aaaaaaaabb/acceaaabbb/cceeaaaafd/eeeeaaaafd/eeeeeeeffd/geehefffjj/ggehhfffjj/iiehjjjjjj/ieehhhjjjj",
+     "tipo": "normal"
+    },
+    {
+     "id": "z2026-11-15-06",
+     "filas": "aceeeeddddd/aceeebddddd/ecceebddddd/eeeeeedhddf/eeeehehhfdf/eeehhhhffff/ggeehhhhhhf/geeehhhhhhh/gggeiiiihih/ggkkkjjiiii/ggkkkjiiiii",
+     "tipo": "normal"
+    },
+    {
+     "id": "z2026-11-15-07",
+     "filas": "dddcceeeeeaa/dcbbceeeaaaa/dcccceeeeeaf/deeeeeeeeeff/ddeeeeeeefff/ddeeeeeeffff/ddeeeeeeiggi/hhkkekiiiiii/kkkkkkjjjiii/kkkkkkkjjjii/kkkkkkjjjjii/kkkkkklljiii",
+     "tipo": "dificil"
+    },
+    {
+     "id": "z2026-11-15-08",
+     "filas": "ddbcccaaa/ddbbccaaa/ddbbfccaa/ddfffffaa/dffeeaaaa/dfeeeaeea/fffeeeega/fffheehgg/hhhhhhhii",
+     "tipo": "normal"
+    },
+    {
+     "id": "z2026-11-15-09",
+     "filas": "aaacccbbd/eccccccbd/ecccccccd/ecccfccdd/eeggfccdd/eggfffccd/eegggffii/heggfffii/hegffiiii",
+     "tipo": "normal"
+    },
+    {
+     "id": "z2026-11-15-10",
+     "filas": "aadddccbbbb/ddddddcbbeb/dddedeccceb/fdeeeeeeeeb/fdfeeeeeeib/fdfffeeiiii/fffggeeikkk/fjjjjeeihhk/jjeeeeeihkk/jjjjeeeiiik/jjeeeeeeiik",
+     "tipo": "normal"
+    },
+    {
+     "id": "z2026-11-15-11",
+     "filas": "ddeeeebbbca/ddebbbbbbca/ddeeeeffcca/gdeeeffffcc/ggeefffffff/gghhhhhffff/ggghhhiifff/ghhhhiiifff/ggghiiijfjk/gghhijjjjjk/gjjjjjjjjkk",
+     "tipo": "normal"
+    },
+    {
+     "id": "z2026-11-15-12",
+     "filas": "dddbbbbaacc/dddddbbbccc/ddddddbbbcc/ddddddbbbcc/ddddbbbccce/ggdffffhhee/gdddihhhhhe/iiddihhihhe/idddiiiiihh/iiiiikjihhh/iikkkkjjjjj",
+     "tipo": "normal"
+    },
+    {
+     "id": "z2026-11-15-13",
+     "filas": "bbbbaaaaaaaa/bbbbbaabaaaa/bbbbbbbbbaac/dddbbbbaaacc/ddffbbfeaaac/gddffffeaicc/gdddfffjaicc/kdddfhhjaicc/kllfffjjaiic/kllffjjjjiic/kklllljjjiii/lllljjjjjjii",
+     "tipo": "normal"
+    },
+    {
+     "id": "z2026-11-15-14",
+     "filas": "cccccccaaaab/cccccaaaaabb/cccgccdddddd/ccgggcccdgde/cgggggggggfe/ggjjjggfffff/hgjjggggffff/hhjggjifffff/hjjgjjiiifff/hhjjjjjjifff/kjjjjjjjiflf/kjjjjllllllf",
+     "tipo": "dificil"
+    },
+    {
+     "id": "z2026-11-15-15",
+     "filas": "bbbbbbacc/bbbbbcacc/bbbbbcccc/eeddbcccc/eeefccccc/efffccccc/efffggicc/gggfggiih/gggggiihh",
+     "tipo": "normal"
+    },
+    {
+     "id": "z2026-11-15-16",
+     "filas": "ccccaaaaa/cccbbbaaa/cccccbbbb/cecccfffd/cechhfffd/chhhififg/chiiiiigg/ihhiiiiig/iiiiiiiii",
+     "tipo": "normal"
+    },
+    {
+     "id": "z2026-11-15-17",
+     "filas": "aabbdddddd/bbbbdddddd/bbbccddddd/ggbcdddfdh/ggeeffffhh/gggffiffhh/ggggfiifhh/giiiiiiihj/giiiiiijjj/iiiiiijjjj",
+     "tipo": "normal"
+    },
+    {
+     "id": "z2026-11-15-18",
+     "filas": "caaaaaaaaaa/caccabbaaaa/ccccabaaaaa/ccccbbbadaa/ccccbbedddd/ccchhheedfd/iihhggeeeff/iihhheeeeef/iiiiiiieeef/iiijiiiikkf/iiijiiiikkk",
+     "tipo": "normal"
+    },
+    {
+     "id": "z2026-11-15-19",
+     "filas": "fddbbbbaaaa/fdddbccccaa/ffddbbbcgae/ffdddggggae/fffdgggggge/fhhggggggkj/ffhhgkgkkkj/ihhiikkkkkj/iiiikkkkkkj/iiikkkkkkjj/kkkkkkkkkkk",
+     "tipo": "normal"
+    },
+    {
+     "id": "z2026-11-15-20",
+     "filas": "aaaccccbbbff/eaadddcccbbf/edddddccchbf/eeggdddcchff/gegggjdchhff/gggiijjjjhhf/iggiijjjjhff/iiiijjjjhhhf/iiiijjjjkkkk/iiijjjjjkkkk/jjjjjjjkkkkk/jjjjjjkkkkll",
      "tipo": "jefe"
     }
    ]
